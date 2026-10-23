@@ -74,6 +74,15 @@ To preview the production build locally:
 npm run preview
 ```
 
+## Deploy to Vercel
+
+1. Sign in to [Vercel](https://vercel.com/) and choose **Add New → Project**.
+2. Import `HARSHITHGOWDAKR/hostel_hub` from GitHub. If prompted, grant Vercel access to this private repository.
+3. Keep the detected Vite settings, or set the build command to `npm run build` and the output directory to `dist`.
+4. Select **Deploy**. Vercel will also build future pushes to `main`.
+
+The included `vercel.json` routes app paths such as `/simulator`, `/student`, and `/owner` back to the SPA so direct links and page refreshes work. The presentation demo does not require environment variables.
+
 ## Flutter scaffold
 
 The Flutter source is separate from the web demo and requires Flutter and platform-specific Firebase setup:
