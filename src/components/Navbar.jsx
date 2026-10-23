@@ -34,7 +34,7 @@ export default function Navbar({
             <span>Hostel</span><strong>Express</strong>
             <span className="brand-tag">CAMPUS DELIVERY</span>
           </div>
-          <span className="brand-subline">Real-Time Firebase Cloud Firestore Ecosystem</span>
+          <span className="brand-subline">Campus delivery demo simulator</span>
         </div>
       </div>
 
@@ -44,11 +44,11 @@ export default function Navbar({
           type="button"
           onClick={() => setViewMode('dual')}
           className={`mode-btn ${viewMode === 'dual' ? 'active' : ''}`}
-          title="Side-by-side Live Split Screen (Student on left + Store Owner on right)"
+          title="Side-by-side demo (Student on left + Store Owner on right)"
         >
           <Columns size={15} />
-          <span>Dual Live Simulator</span>
-          <span className="live-pill">SYNCED</span>
+          <span>Dual Demo Simulator</span>
+          <span className="live-pill">LOCAL</span>
         </button>
 
         <button
@@ -79,10 +79,10 @@ export default function Navbar({
           type="button"
           onClick={onOpenInspector}
           className="nav-tool-btn"
-          title="Inspect Cloud Firestore Collections & Schemas"
+          title="Inspect the browser-local demo data"
         >
           <Database size={15} className="text-amber" />
-          <span>Firestore DB</span>
+          <span>Demo Data</span>
         </button>
 
         <button
@@ -92,7 +92,7 @@ export default function Navbar({
           title="Firebase Configuration & Security Rules"
         >
           <Flame size={15} className="text-orange" />
-          <span>Firebase</span>
+          <span>Backend Info</span>
         </button>
 
         <button

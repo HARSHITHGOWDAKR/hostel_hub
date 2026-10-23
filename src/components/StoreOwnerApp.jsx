@@ -103,7 +103,7 @@ export default function StoreOwnerApp({ dbState, db }) {
   const handleOwnerVerifyOtp = (e) => {
     if (e) e.preventDefault();
     if (ownerEnteredOtp !== ownerGeneratedOtp && ownerEnteredOtp !== '123456') {
-      setOwnerOtpError('Invalid OTP code. Please enter the code sent to your phone or use 123456.');
+      setOwnerOtpError('Invalid demo code. Enter the code shown on screen or use 123456.');
       return;
     }
     setOwnerOtpError('');
@@ -297,7 +297,7 @@ export default function StoreOwnerApp({ dbState, db }) {
                     required
                   />
                 </div>
-                <span className="input-hint">Verification code will be sent to owner mobile</span>
+                <span className="input-hint">Demo only: no SMS is sent; the code appears on screen</span>
               </div>
 
               <div className="form-group">
@@ -328,7 +328,7 @@ export default function StoreOwnerApp({ dbState, db }) {
           {ownerAuthStep === 'otp' && (
             <form onSubmit={handleOwnerVerifyOtp} className="auth-form animate-fade-in">
               <div className="otp-info-header">
-                <p>Enter 6-digit merchant OTP sent to <strong>+91 {ownerPhone}</strong></p>
+                <p>Enter the 6-digit demo code shown on screen for +91 {ownerPhone}</p>
                 <button 
                   type="button" 
                   onClick={() => setOwnerAuthStep('phone')} 
@@ -385,7 +385,7 @@ export default function StoreOwnerApp({ dbState, db }) {
 
           <div className="auth-footer-terms">
             <ShieldCheck size={14} className="text-emerald" />
-            <span>Authenticated with Firebase Cloud Auth & Real-Time Firestore</span>
+            <span>Demo sign-in — no phone verification or cloud connection</span>
           </div>
         </div>
       </div>

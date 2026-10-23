@@ -1,13 +1,13 @@
-import { 
-  INITIAL_USERS, 
-  INITIAL_STORES, 
-  INITIAL_PRODUCTS, 
+import {
+  INITIAL_USERS,
+  INITIAL_STORES,
+  INITIAL_PRODUCTS,
   INITIAL_ORDERS,
-  ORDER_STATUS_FLOW 
+  ORDER_STATUS_FLOW
 } from '../utils/mockData';
 import { soundManager } from '../utils/audioAlert';
+import { getSupabaseStatus } from '../lib/supabaseClient';
 
-// Cross-tab and dual-panel real-time communication channel
 const CHANNEL_NAME = 'hostel_delivery_firestore_sync';
 let broadcastChannel = null;
 try {
@@ -18,11 +18,13 @@ try {
   console.warn('BroadcastChannel not supported:', e);
 }
 
-// In-memory / LocalStorage reactive store simulating Firestore collections
 class ReactiveFirestore {
   constructor() {
+    const { mode } = getSupabaseStatus();
     this.subscribers = new Set();
-    this.nextOrderNumber = 1001; // Demonstration requirement: "Order #1001 for ₹90"
+    this.nextOrderNumber = 1001;
+    this.mode = mode;
+    this.cloudReady = mode === 'cloud-ready';
     this.loadState();
     this.setupListeners();
   }

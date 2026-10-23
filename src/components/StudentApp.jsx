@@ -112,7 +112,7 @@ export default function StudentApp({ dbState, db }) {
   const handleVerifyOtp = (e) => {
     if (e) e.preventDefault();
     if (enteredOtp !== generatedOtp && enteredOtp !== '123456') {
-      setOtpError('Invalid OTP code. Please enter the code sent to your phone or use 123456.');
+      setOtpError('Invalid demo code. Enter the code shown on screen or use 123456.');
       return;
     }
     setOtpError('');
@@ -291,7 +291,7 @@ export default function StudentApp({ dbState, db }) {
                     required
                   />
                 </div>
-                <span className="input-hint">An OTP verification code will be sent to your phone</span>
+                <span className="input-hint">Demo only: no SMS is sent; the code appears on screen</span>
               </div>
 
               {/* Student Profile Quick Details */}
@@ -346,7 +346,7 @@ export default function StudentApp({ dbState, db }) {
           {authStep === 'otp' && (
             <form onSubmit={handleVerifyOtp} className="auth-form animate-fade-in">
               <div className="otp-info-header">
-                <p>Enter the 6-digit verification code sent to <strong>+91 {phoneNumber}</strong></p>
+                <p>Enter the 6-digit demo code shown on screen for +91 {phoneNumber}</p>
                 <button 
                   type="button" 
                   onClick={() => setAuthStep('phone')} 
@@ -403,7 +403,7 @@ export default function StudentApp({ dbState, db }) {
 
           <div className="auth-footer-terms">
             <ShieldCheck size={14} className="text-emerald" />
-            <span>Authenticated with Firebase Cloud Auth & Firestore</span>
+            <span>Demo sign-in — no phone verification or cloud connection</span>
           </div>
         </div>
       </div>
